@@ -37,3 +37,51 @@ export async function deleteLocalFiles(files: Array<string>) {
     fs.unlinkSync(file);
   }
 }
+
+
+// isValidURL
+// helper function to check if a string is valid URL
+// INPUTS
+//    stringToValidate as a string
+// OUTPUTS
+//    boolean True if valid, False if not valid
+export function isValidURL(stringToValidate: string): boolean {
+  try {
+    return Boolean(new URL(stringToValidate));
+  }
+  catch (e) {
+    return false;
+  }
+}
+
+// getExtension
+// helper function to split the format from the last "."
+// INPUTS
+//    filename as a string
+// OUTPUT
+//    string after the last point
+function getExtension(filename: string): string {
+  var parts = filename.split('.');
+  return parts[parts.length - 1];
+}
+
+// isValidFormat
+// helper function to validate file format
+// INPUTS
+//    filename as a string
+// OUTPUT
+//    true if format is valid else false
+export function isValidFormat(filename: string): boolean {
+  var ext = getExtension(filename);
+  switch (ext.toLowerCase()) {
+    case 'jpeg':
+    case 'png':
+    case 'bmp':
+    case 'tiff':
+    case 'gif':
+
+      return true;
+  }
+  return false;
+}
+
