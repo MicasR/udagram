@@ -67,6 +67,7 @@ function getExtension(filename: string): string {
 
 // isValidFormat
 // helper function to validate file format
+// The formats a according to jim documentation on : https://www.npmjs.com/package/jimp
 // INPUTS
 //    filename as a string
 // OUTPUT
@@ -75,6 +76,7 @@ export function isValidFormat(filename: string): boolean {
   var ext = getExtension(filename);
   switch (ext.toLowerCase()) {
     case 'jpeg':
+    case 'jpg':
     case 'png':
     case 'bmp':
     case 'tiff':
