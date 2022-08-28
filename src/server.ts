@@ -44,8 +44,8 @@ import { filterImageFromURL, deleteLocalFiles, isValidURL, isValidFormat } from 
       });
       return
     }).catch((message) => {
-      //    3.1 return status 422 if an unexpected error occurred.
-      return res.status(422).send("The request was well-formed, but an unexpected error occurred. " + message);
+      //    3.1 return status 500 if an unexpected error occurred.
+      return res.status(500).send("The request was well-formed, but an unexpected error occurred. " + message);
     })
   })
   /**************************************************************************** */
