@@ -17,7 +17,7 @@ import { filterImageFromURL, deleteLocalFiles, isValidURL, isValidFormat } from 
   // GET /filteredimage?image_url={{URL}}
   // endpoint to filter an image from a public url.
   app.get("/filteredimage", async (req: Request, res: Response) => {
-    let { image_url } = req.query
+    let image_url: string  = req.query.image_url
 
     //  1. validate the image_url query
     //    1.1. return status 400 if image_url not in query param
